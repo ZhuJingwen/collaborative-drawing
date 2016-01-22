@@ -1,0 +1,16 @@
+html, body {
+  background: #3A539B;
+}
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Lekton', sans-serif;
+  font-size: 36pt;
+}
+canvas {
+  margin: auto;
+  padding: auto;
+  display: block;
+  cursor: default;
+}

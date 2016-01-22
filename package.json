@@ -1,0 +1,25 @@
+{
+  "name": "drawing-together",
+  "version": "1.0.0",
+  "description": "a collaborate drawing web app",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZhuJingwen/drawing-together.git"
+  },
+  "author": "Jingwen Zhu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZhuJingwen/drawing-together/issues"
+  },
+  "homepage": "https://github.com/ZhuJingwen/drawing-together#readme"
+}
