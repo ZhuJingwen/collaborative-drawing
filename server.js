@@ -1,4 +1,4 @@
-var express = require('express');  //require express module
+var express = require('express');  //to load express module
 var app = express();  //create an express app
 var http = require('http').Server(app);  //app starts a http server
 var io = require('socket.io')(http);  //require socket.io module

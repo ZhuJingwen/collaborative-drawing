@@ -1,4 +1,4 @@
-var socket = io.connect(); 
+var socket = io.connect();
 // var socket = io.connect('http://localhost:8080/');
 
 socket.on('connect', function() {
@@ -6,18 +6,8 @@ socket.on('connect', function() {
 });
 
 socket.on('new stroke', function(data) {
-  drawOther(data.x, data.y, data.h, data.r);
+  drawStroke(data.x, data.y, data.h, data.r);
 });
-
-var sendSelf = function(xval, yval, hval, rval) {
-  drawSelf(xval, yval, hval, rval);
-  socket.emit('new stroke', {
-    x: xval,
-    y: yval,
-    h: hval,
-    r: rval
-  });
-};
 
 var initR, initH;
 var initS = 70;
@@ -37,24 +27,22 @@ function setup() {
 }
 
 function mouseDragged() {
-  console.log(mouseX + "," + mouseY);
+  //console.log(mouseX + "," + mouseY);
+  drawStroke(mouseX, mouseY, initH, initR);
   sendSelf(mouseX, mouseY, initH, initR);
 }
 
-function draw() {
+function drawStroke(xval, yval, hval, rval) {
+  fill(hval, initS, initB);
+  noStroke();
+  ellipse(xval, yval, rval, rval);
+}
 
+function sendSelf(xval, yval, hval, rval) {
+  socket.emit('new stroke', {
+    x: xval,
+    y: yval,
+    h: hval,
+    r: rval
+  });
 };
-
-function drawSelf(xval, yval, hval, rval) {
-  colorMode(HSB, 100);
-  fill(hval, initS, initB);
-  noStroke();
-  ellipse(xval, yval, rval, rval);
-}
-
-function drawOther(xval, yval, hval, rval) {
-  colorMode(HSB, 100);
-  fill(hval, initS, initB);
-  noStroke();
-  ellipse(xval, yval, rval, rval);
-}
