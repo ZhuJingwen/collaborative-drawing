@@ -2,8 +2,8 @@
 
 This is a simple web app for collaborative drawing.
 
-### Install node modules
+### To install node modules
     $ npm install
 
-### Run project
+### To run project
     $ node server.js

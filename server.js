@@ -12,12 +12,25 @@ http.listen(8080, function() {
 
 //socket.io part
 io.on('connection', function(socket) {
-
+var hval = Math.floor((Math.random() * 100));
   console.log("We have a new client: " + socket.id);
 
   socket.on('new stroke', function(data) {
     console.log("Received: 'new stroke' " + data.x + " " + data.y + " " + data.h + " " + data.r);
     socket.broadcast.emit('new stroke', data);     // Send it to all the other clients
+  });
+
+  socket.on('data', function(data) {
+    var xval = Math.floor((Math.random() * 1000));
+    var yval = Math.floor((Math.random() * 600));
+
+    console.log("Received: 'data' " +data);
+    socket.broadcast.emit('new stroke', {
+      x: xval,
+      y: yval,
+      h: data,
+      r: data
+    });  // Send it to all the other clients
   });
 
   socket.on('disconnect', function() {
