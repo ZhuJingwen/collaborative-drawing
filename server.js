@@ -12,7 +12,7 @@ http.listen(8080, function() {
 
 //socket.io part
 io.on('connection', function(socket) {
-var hval = Math.floor((Math.random() * 100));
+
   console.log("We have a new client: " + socket.id);
 
   socket.on('new stroke', function(data) {
